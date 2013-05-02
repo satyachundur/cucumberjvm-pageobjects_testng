@@ -1,0 +1,26 @@
+<project basedir="." name="equalexperts" default="help">
+    <property name="build.compiler" value="extJavac"/>
+    <property name="src.dir" value="${basedir}/java/src"/>
+    <property name="resources.dir" value="${basedir}/java/resources"/>
+    <property name="classes.dir" value="${basedir}/java/classes/main"/>
+    <property name="lib.dir" value="${basedir}/lib"/>
+    <property name="build.dir" value="${basedir}/build"/>
+    <property name="equalexperts.jar" value="${build.dir}/equalexperts.jar"/>
+	
+	
+	<target name="run_firefox_tests" description="run all tests of selected type(s)">
+			<property name="excludedgroups" value=""/>		
+			<testng classpathref="equalexperts.classpath" groups="${groups}" excludedgroups="${excludedgroups}">
+				<xmlfileset dir="${basedir}" includes="firefox.xml"/>
+			</testng>
+		</target>
+	 <target name="run_test" description="run test method">
+			<testng classpathref="equalexperts.classpath" methods="equalexperts.${feature}.${test}">
+				<classfileset dir="${build.dir}" includes="org.openqa.selenium.example/*.class"/>
+			</testng>
+		</target>
+	 <target name="help">
+	        <echo message="Run the tests for Amazon firefox" />
+	 </target>
+
+  </project>
