@@ -1,8 +1,0 @@
-<suite name="Suite" verbose="1">
-	<parameter name="browser" value="firefox"/>
-	<test name="GUI Tests Firefox">
-		<packages>
-			<package name="functionalTests"/>
-		</packages>
-	</test>
-</suite>
